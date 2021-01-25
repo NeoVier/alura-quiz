@@ -5,7 +5,7 @@ import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import QuizBackground from "../src/components/QuizBackground";
 import QuizLogo from "../src/components/QuizLogo";
-import Widget from "../src/components/Widget";
+import Widget, { WidgetContent, WidgetHeader } from "../src/components/Widget";
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -24,20 +24,20 @@ export default function Home() {
       <QuizContainer>
         <QuizLogo />
         <Widget>
-          <Widget.Header>
+          <WidgetHeader>
             <h1>{db.title}</h1>
-          </Widget.Header>
-          <Widget.Content>
+          </WidgetHeader>
+          <WidgetContent>
             <p>{db.description}</p>
-          </Widget.Content>
+          </WidgetContent>
         </Widget>
 
         <Widget>
-          <Widget.Content>
+          <WidgetContent>
             <h1>Other quizzes</h1>
 
             <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
+          </WidgetContent>
         </Widget>
 
         <Footer />
