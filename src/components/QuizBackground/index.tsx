@@ -7,11 +7,11 @@ type Props = {
 const QuizBackground = styled.div<Props>`
   width: 100%;
   background-repeat: no-repeat;
-  background-position: center 30%;
+  background-position: 60% 30%;
   background-image: url(${({ backgroundImage }) => backgroundImage});
   background-color: ${({ theme }) => theme.colors.mainBg};
   flex: 1;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 850px) {
     background-image: none;
     &:after {
       content: "";
