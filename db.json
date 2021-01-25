@@ -1,0 +1,18 @@
+{
+  "bg": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/120px-Elm_logo.svg.png",
+  "title": "Elm - A delightful language",
+  "description": "Quiz about the Elm programming language",
+  "questions": [],
+  "external": [],
+  "theme": {
+    "colors": {
+      "primary": "#1283D8",
+      "secondary": "#FFFFFF",
+      "mainBg": "#FFFFFF",
+      "contrastText": "#000E16",
+      "wrong": "#D82111",
+      "success": "#11D846"
+    },
+    "borderRadius": "0"
+  }
+}

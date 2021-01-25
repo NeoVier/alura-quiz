@@ -20,7 +20,7 @@
     "removeComments": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "strictFunctionTypes": true,
+    "strictFunctionTypes": false,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/_app.js"
-  ],
+, "src/components/Widget/index.tsx"  ],
   "exclude": [
     "node_modules"
   ]
