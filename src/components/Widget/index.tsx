@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled, { StyledComponentBase } from "styled-components";
 
-const Widget = styled.div`
+interface WidgetProps extends StyledComponentBase<any, {}> {
+  Content?: any;
+  Header?: any;
+}
+
+const Widget: WidgetProps = styled.div`
   margin: 24px 0;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => {
@@ -23,7 +28,7 @@ const Widget = styled.div`
   }
 `;
 
-export const WidgetHeader = styled.header`
+Widget.Header = styled.header`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,7 +41,7 @@ export const WidgetHeader = styled.header`
   }
 `;
 
-export const WidgetContent = styled.div`
+Widget.Content = styled.div`
   padding: 24px 32px 32px;
   > *:first-child {
     margin-top: 0;
