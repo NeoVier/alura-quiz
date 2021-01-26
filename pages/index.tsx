@@ -93,6 +93,9 @@ export default function Home() {
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
+            <h4 style={{ fontWeight: "normal" }}>
+              Enter your name so you can play with other people:
+            </h4>
             <form onSubmit={handleSubmit}>
               <NameInput
                 placeholder="Name"
