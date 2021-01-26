@@ -20,9 +20,59 @@ const QuizContainer = styled.div`
   }
 `;
 
+const NameInput = styled.input`
+  width: 100%;
+  background: transparent;
+  color: ${({ theme }) => theme.colors.contrastText};
+  padding: 10px;
+  border: solid 1px ${({ theme }) => theme.colors.primary};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  margin-bottom: 10px;
+`;
+
+const SubmitButton = styled.button`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.secondary};
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  line-height: 16px;
+  cursor: pointer;
+
+  &:disabled {
+    background: #979797;
+    cursor: default;
+  }
+`;
+
+const OtherQuizBox = styled.li`
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.secondary};
+  border: none;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  margin: 5px 0;
+
+  a {
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState("");
+  const otherQuizzes = [
+    "NeoVier/alura-quiz",
+    "NeoVier/alura-quiz",
+    "NeoVier/alura-quiz",
+  ];
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,13 +94,13 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={handleSubmit}>
-              <input
+              <NameInput
                 placeholder="Name"
                 onChange={(event) => setName(event.target.value)}
               />
-              <button type="submit" disabled={!name}>
+              <SubmitButton type="submit" disabled={!name}>
                 Play
-              </button>
+              </SubmitButton>
             </form>
           </Widget.Content>
         </Widget>
@@ -59,7 +109,15 @@ export default function Home() {
           <Widget.Content>
             <h1>Other quizzes</h1>
 
-            <p>lorem ipsum dolor sit amet...</p>
+            <p>Check out some other quizzes made during the event:</p>
+
+            <ul>
+              {otherQuizzes.map((name, index) => (
+                <OtherQuizBox key={index}>
+                  <a href={`https://github.com/${name}`}>{name}</a>
+                </OtherQuizBox>
+              ))}
+            </ul>
           </Widget.Content>
         </Widget>
 
