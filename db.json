@@ -2,7 +2,20 @@
   "bg": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/120px-Elm_logo.svg.png",
   "title": "Elm - A delightful language",
   "description": "Quiz about the Elm programming language",
-  "questions": [],
+  "questions": [
+    {
+      "alternatives": [
+        "This is the first alternative",
+        "This is the second alternative",
+        "This is the third alternative",
+        "This is the fourth alternative"
+      ],
+      "answer": 0,
+      "description": "This is the description",
+      "image": "https://placehold.it/400x400",
+      "title": "This is the title"
+    }
+  ],
   "external": [],
   "theme": {
     "colors": {

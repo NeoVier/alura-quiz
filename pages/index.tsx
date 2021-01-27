@@ -3,48 +3,14 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styled from "styled-components";
 import db from "../db.json";
+import Button from "../src/components/Button";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
+import Input from "../src/components/Input";
 import QuizBackground from "../src/components/QuizBackground";
+import QuizContainer from "../src/components/QuizContainer";
 import QuizLogo from "../src/components/QuizLogo";
 import Widget from "../src/components/Widget";
-
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-
-const NameInput = styled.input`
-  width: 100%;
-  background: transparent;
-  color: ${({ theme }) => theme.colors.contrastText};
-  padding: 10px;
-  border: solid 1px ${({ theme }) => theme.colors.primary};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  margin-bottom: 10px;
-`;
-
-const SubmitButton = styled.button`
-  width: 100%;
-  background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.secondary};
-  padding: 10px;
-  font-weight: bold;
-  border: none;
-  line-height: 16px;
-  cursor: pointer;
-
-  &:disabled {
-    background: #979797;
-    cursor: default;
-  }
-`;
 
 const OtherQuizBox = styled.li`
   background: ${({ theme }) => theme.colors.primary};
@@ -97,13 +63,15 @@ export default function Home() {
               Enter your name so you can play with other people:
             </h4>
             <form onSubmit={handleSubmit}>
-              <NameInput
-                placeholder="Name"
+              <Input
                 onChange={(event) => setName(event.target.value)}
+                placeholder="Name"
+                value={name}
+                name="username"
               />
-              <SubmitButton type="submit" disabled={!name}>
+              <Button type="submit" disabled={!name}>
                 Play
-              </SubmitButton>
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
