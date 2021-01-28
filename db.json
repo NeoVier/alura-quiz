@@ -13,10 +13,22 @@
       "answer": 0,
       "description": "This is the description",
       "image": "https://placehold.it/400x400",
-      "title": "This is the title"
+      "title": "This is the first title"
+    },
+    {
+      "alternatives": [
+        "This is the first alternative",
+        "This is the second alternative",
+        "This is the third alternative",
+        "This is the fourth alternative"
+      ],
+      "answer": 1,
+      "description": "This is the description",
+      "image": "https://placehold.it/400x400",
+      "title": "This is the second title"
     }
   ],
-  "external": [],
+  "external": ["omariosouto/aluraquiz-css", "omariosouto/aluraquiz-marvel"],
   "theme": {
     "colors": {
       "primary": "#1283D8",

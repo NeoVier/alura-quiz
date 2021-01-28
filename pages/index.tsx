@@ -34,11 +34,7 @@ const OtherQuizBox = styled.li`
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState("");
-  const otherQuizzes = [
-    "NeoVier/alura-quiz",
-    "NeoVier/alura-quiz",
-    "NeoVier/alura-quiz",
-  ];
+  const otherQuizzes = db.external;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

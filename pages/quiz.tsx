@@ -16,7 +16,7 @@ type State =
 const QuizPage = () => {
   const [state, setState] = useState<State>({ status: "loading" });
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [rightQuestions, setRightQuestions] = useState(0);
+  const [results, setResults] = useState<boolean[]>([]);
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
@@ -34,9 +34,7 @@ const QuizPage = () => {
     if (state.status !== "loaded") return;
 
     const question = state.questions[questionIndex];
-    if (answerId === question.answer) {
-      setRightQuestions(rightQuestions + 1);
-    }
+    setResults([...results, answerId === question.answer]);
 
     if (questionIndex === db.questions.length - 1) {
       setState({ status: "done" });
@@ -63,7 +61,7 @@ const QuizPage = () => {
       break;
     }
     case "done": {
-      widget = <FinishedQuizWidget rightQuestions={rightQuestions} />;
+      widget = <FinishedQuizWidget results={results} />;
       break;
     }
 
