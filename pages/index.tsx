@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import styled from "styled-components";
 import db from "../db.json";
 import Button from "../src/components/Button";
 import Footer from "../src/components/Footer";
@@ -11,25 +12,7 @@ import QuizBackground from "../src/components/QuizBackground";
 import QuizContainer from "../src/components/QuizContainer";
 import QuizLogo from "../src/components/QuizLogo";
 import Widget from "../src/components/Widget";
-
-const OtherQuizBox = styled.li`
-  background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.secondary};
-  border: none;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  margin: 5px 0;
-
-  a {
-    padding: 10px;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
+import { quizLinkToName, toLocalLink } from "../src/utils/dbLinks";
 
 export default function Home() {
   const router = useRouter();
@@ -50,7 +33,16 @@ export default function Home() {
 
       <QuizContainer>
         <QuizLogo />
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ duration: 0.3, delay: 0 }}
+          variants={{
+            show: { opacity: 1, y: "0" },
+            hidden: { opacity: 0, y: "100%" },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
@@ -72,23 +64,43 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          variants={{
+            show: { opacity: 1, y: "0" },
+            hidden: { opacity: 0, y: "100%" },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             <h1>Other quizzes</h1>
 
             <p>Check out some other quizzes made during the event:</p>
 
             <ul>
-              {otherQuizzes.map((name, index) => (
-                <OtherQuizBox key={index}>
-                  <a href={`https://github.com/${name}`}>{name}</a>
-                </OtherQuizBox>
+              {otherQuizzes.map((quizLink, index) => (
+                <li key={`quiz__${index}`}>
+                  <Link href={toLocalLink(quizLink)}>
+                    <Widget.Topic>{quizLinkToName(quizLink)}</Widget.Topic>
+                  </Link>
+                </li>
               ))}
             </ul>
           </Widget.Content>
         </Widget>
 
-        <Footer />
+        <Footer
+          as={motion.footer}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          variants={{
+            show: { opacity: 1, y: "0" },
+            hidden: { opacity: 0, y: "100%" },
+          }}
+          initial="hidden"
+          animate="show"
+        />
       </QuizContainer>
 
       <GitHubCorner projectUrl="https://github.com/NeoVier/alura-quiz" />

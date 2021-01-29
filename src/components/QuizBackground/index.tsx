@@ -7,7 +7,8 @@ type Props = {
 const QuizBackground = styled.div<Props>`
   width: 100%;
   background-repeat: no-repeat;
-  background-position: 60% 30%;
+  background-position: center;
+  background-size: cover;
   background-image: url(${({ backgroundImage }) => backgroundImage});
   background-color: ${({ theme }) => theme.colors.mainBg};
   flex: 1;

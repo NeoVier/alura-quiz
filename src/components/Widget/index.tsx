@@ -13,6 +13,7 @@ const Widget: WidgetProps = styled.div`
     return theme.colors.mainBg;
   }};
   border-radius: ${({ theme }) => theme.borderRadius};
+  color: ${({ theme }) => theme.colors.contrastText};
   overflow: hidden;
   h1,
   h2,
@@ -35,7 +36,7 @@ Widget.Header = styled.header`
   align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.contrastText};
 
   * {
     margin: 0;

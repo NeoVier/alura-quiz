@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AlternativesForm from "../AlternativesForm";
+import BackLinkArrow from "../BackLinkArrow";
 import Button from "../Button";
 import Question from "../models/Question";
 import Widget from "../Widget";
@@ -48,6 +49,7 @@ const QuestionWidget = ({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>
           Question {questionIndex + 1} of {totalQuestions}
         </h3>
